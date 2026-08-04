@@ -1,31 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "@/components/greenprint/logo";
+import { ArrowRight } from "lucide-react";
+import { LogoMark } from "@/components/greenprint/logo";
 import { ThemeToggle } from "@/components/greenprint/theme-toggle";
-import { Button } from "@/components/ui/button";
 
+/** Eddie-style floating two-island nav: a brand pill on the left, an action pill on the right. */
 export function LandingNav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border/70 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 lg:px-6">
-        <Link href="/">
-          <Logo size={32} />
+    <header className="sticky top-3 z-50 mx-auto flex max-w-[1480px] items-center justify-between px-3 sm:px-5">
+      <Link
+        href="/"
+        className="flex items-center gap-3 rounded-[26px] border border-border/60 bg-card/90 py-2.5 pl-3 pr-5 shadow-[0_10px_30px_rgba(20,18,40,0.10)] backdrop-blur-xl transition-transform hover:-translate-y-0.5"
+      >
+        <LogoMark size={38} />
+        <span className="font-display text-xl font-extrabold tracking-tight">
+          Green<span className="text-gradient-eco">print</span>
+        </span>
+      </Link>
+
+      <div className="flex items-center gap-1.5 rounded-full border border-border/60 bg-card/90 p-2 shadow-[0_10px_30px_rgba(20,18,40,0.10)] backdrop-blur-xl">
+        <ThemeToggle className="border-0 bg-transparent shadow-none" />
+        <Link
+          href="/login"
+          className="hidden rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
+        >
+          Sign in
         </Link>
-        <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
-          <a href="#features" className="transition-colors hover:text-foreground">Features</a>
-          <a href="#green" className="transition-colors hover:text-foreground">Green by design</a>
-          <a href="#how" className="transition-colors hover:text-foreground">How it works</a>
-        </nav>
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-            <Link href="/login">Sign in</Link>
-          </Button>
-          <Button asChild size="sm" className="font-semibold">
-            <Link href="/signup">Get started</Link>
-          </Button>
-        </div>
+        <Link
+          href="/signup"
+          className="group inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-transform hover:-translate-y-0.5"
+        >
+          Get started
+          <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
       </div>
     </header>
   );

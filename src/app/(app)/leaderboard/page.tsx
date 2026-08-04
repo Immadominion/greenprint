@@ -51,7 +51,7 @@ export default async function LeaderboardPage() {
                 <div className="text-xs text-muted-foreground">
                   {rank.emoji} {rank.name} · Lvl {row.level}
                 </div>
-                <div className="mt-2 font-display text-2xl font-bold tabular-nums text-brand">{row.xp.toLocaleString()}</div>
+                <div className="mt-2 font-mono text-2xl font-bold tabular-nums text-brand">{row.xp.toLocaleString()}</div>
                 <div className="text-[0.65rem] uppercase tracking-wide text-muted-foreground">XP</div>
               </div>
             );
@@ -91,7 +91,7 @@ export default async function LeaderboardPage() {
                   <Leaf className="size-4" />
                   {formatCo2(row.co2Saved)}
                 </div>
-                <div className="w-16 text-right font-display font-bold tabular-nums">{row.xp.toLocaleString()}</div>
+                <div className="w-16 text-right font-mono font-bold tabular-nums">{row.xp.toLocaleString()}</div>
               </li>
             );
           })}

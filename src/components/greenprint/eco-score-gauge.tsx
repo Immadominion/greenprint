@@ -54,7 +54,7 @@ export function EcoScoreGauge({
       </svg>
       <div className="absolute inset-0 grid place-items-center text-center">
         <div>
-          <div className="font-display text-5xl font-extrabold tabular-nums leading-none" style={{ color }}>
+          <div className="font-mono text-[2.75rem] font-bold tabular-nums leading-none" style={{ color }}>
             <CountUp value={score} />
           </div>
           <div className="mt-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{label}</div>

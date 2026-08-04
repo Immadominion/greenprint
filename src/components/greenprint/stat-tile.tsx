@@ -40,7 +40,7 @@ export function StatTile({
           <Icon className="size-[18px]" />
         </span>
       </div>
-      <div className="mt-3 font-display text-3xl font-bold tabular-nums leading-none">{value}</div>
+      <div className="mt-3 font-mono text-3xl font-bold tabular-nums leading-none">{value}</div>
       {sub && <div className="mt-1.5 text-sm text-muted-foreground">{sub}</div>}
     </div>
   );
