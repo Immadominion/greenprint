@@ -9,6 +9,10 @@ estimates its energy & CO₂ cost, and coaches you toward faster, greener altern
 
 `SOE 508 · Special Topics in Software Engineering · Group 3 · FUTO`
 
+### ▶ [Live demo — greenprint-eta.vercel.app](https://greenprint-eta.vercel.app)
+
+_Click **Book a demo** → **"Use a demo account"**, or sign in with any `name@greenprint.demo` email, password **`greenprint`**._
+
 </div>
 
 <div align="center">
@@ -154,6 +158,14 @@ greenprint/
 Everything is current, non-deprecated tooling as of the build date.
 
 ---
+
+## ☁️ Deployment
+
+Live on **Vercel** with a **Turso** (libSQL) cloud database. Because the engine is libSQL-native,
+going live needed **no code changes** — just point `DATABASE_URL` / `DATABASE_AUTH_TOKEN` at Turso.
+Local dev still uses the offline SQLite file, so teammates run it with zero setup. Production env
+vars: `DATABASE_URL`, `DATABASE_AUTH_TOKEN`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL` (+ optional
+`ANTHROPIC_API_KEY`). Pushes to `main` auto-deploy.
 
 ## 📚 Documentation
 
