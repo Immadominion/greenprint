@@ -98,7 +98,6 @@ export async function runSeed() {
       .values({
         userId,
         displayName: m.display,
-        regNumber: m.regNumber,
         xp: m.seedXp,
         level,
         streakCount: m.seedStreak,

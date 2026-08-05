@@ -47,7 +47,6 @@ export default function TeamPage() {
               </div>
               <div className="mt-3 font-semibold">{m.display}</div>
               <div className="text-xs text-muted-foreground">{m.name}</div>
-              <div className="mt-0.5 font-mono text-xs text-muted-foreground">{m.regNumber}</div>
               <div className="mt-3 inline-flex rounded-lg bg-muted px-2.5 py-1 text-xs font-medium">{m.role}</div>
             </div>
           </StaggerItem>

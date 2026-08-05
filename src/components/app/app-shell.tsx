@@ -6,6 +6,7 @@ import { useState, type ReactNode } from "react";
 import {
   BookOpen,
   Code2,
+  FileText,
   Flame,
   History,
   LayoutDashboard,
@@ -46,6 +47,7 @@ const NAV = [
   { href: "/leaderboard", label: "Leaderboard", icon: Trophy },
   { href: "/team", label: "Team", icon: Users },
   { href: "/rules", label: "How it works", icon: BookOpen },
+  { href: "/docs", label: "Docs", icon: FileText },
 ];
 
 function initials(name: string) {

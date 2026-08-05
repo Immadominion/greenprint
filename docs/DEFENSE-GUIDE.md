@@ -67,7 +67,7 @@ you own**, and **questions you should be ready to answer**.
 
 ---
 
-### 👑 Ozuzu Victor Onyedikachi — `20211274152` — Team Lead & Project Overview
+### 👑 Ozuzu Victor Onyedikachi — Team Lead & Project Overview
 
 **Your part in one sentence:** you own the *story* — what Greenprint is, why we built it, and how
 the whole team's work fits together.
@@ -92,7 +92,7 @@ overall demo flow.
 
 ---
 
-### 🧭 Nwakanma Dominion Chinonso — `20211274242` — Architecture & System Design
+### 🧭 Nwakanma Dominion Chinonso — Architecture & System Design
 
 **Your part in one sentence:** how the whole system is put together and why we made those choices.
 
@@ -122,7 +122,7 @@ database, the AI) talk to each other.
 
 ---
 
-### 📐 Okoye Victor Ebubechukwu — `20211270552` — Analysis Engine: Complexity Metrics
+### 📐 Okoye Victor Ebubechukwu — Analysis Engine: Complexity Metrics
 
 **Your part in one sentence:** the part that *measures* how big and how tangled a piece of code is.
 
@@ -153,7 +153,7 @@ database, the AI) talk to each other.
 
 ---
 
-### 🔍 Ezeh Chibuzor Nwabueze — `20211272292` — Analysis Engine: Inefficiency Rules
+### 🔍 Ezeh Chibuzor Nwabueze — Analysis Engine: Inefficiency Rules
 
 **Your part in one sentence:** the "checklist of bad habits" — the rules that actually *find* the
 wasteful patterns in code.
@@ -185,7 +185,7 @@ exponential recursion, logging inside a loop, and more.
 
 ---
 
-### ⚡ Onyemauche Ifeanyichukwu Victor — `20211282432` — Energy & CO₂ Estimation Model
+### ⚡ Onyemauche Ifeanyichukwu Victor — Energy & CO₂ Estimation Model
 
 **Your part in one sentence:** the part that turns "this code is inefficient" into actual numbers —
 estimated time, electricity, and carbon.
@@ -216,7 +216,7 @@ constants).
 
 ---
 
-### 🎯 Obi Michael Chimaobi — `20211265722` — EcoScore & Scoring System
+### 🎯 Obi Michael Chimaobi — EcoScore & Scoring System
 
 **Your part in one sentence:** how we turn all the findings into a single, fair **score out of 100**
 with a letter grade.
@@ -246,7 +246,7 @@ with a letter grade.
 
 ---
 
-### 🔐 Okafor Kosisochukwu JohnPaul — `20211287502` — Authentication & Security
+### 🔐 Okafor Kosisochukwu JohnPaul — Authentication & Security
 
 **Your part in one sentence:** how users sign up and log in securely, and how we keep private pages
 private.
@@ -276,7 +276,7 @@ login/signup pages.
 
 ---
 
-### 🗄️ Enyinnia Joseph Chidubem — `20211263432` — Database & Data Model
+### 🗄️ Enyinnia Joseph Chidubem — Database & Data Model
 
 **Your part in one sentence:** where and how everything is stored, and how we get it back quickly.
 
@@ -307,7 +307,7 @@ read queries).
 
 ---
 
-### 🤖 Chukwuemeka-ogu Chinalurum Michael — `20211264302` — AI Layer (Claude & Caching)
+### 🤖 Chukwuemeka-ogu Chinalurum Michael — AI Layer (Claude & Caching)
 
 **Your part in one sentence:** the smart assistant that explains code and writes documentation — and
 does it efficiently.
@@ -339,7 +339,7 @@ demo mode.
 
 ---
 
-### 💻 Ukwuoma Chiemerie Gerald — `20211277622` — Code Workspace & Editor
+### 💻 Ukwuoma Chiemerie Gerald — Code Workspace & Editor
 
 **Your part in one sentence:** the main screen where you paste, upload or pick code and press
 "Analyze".
@@ -367,7 +367,7 @@ and shows the results and AI panels after analysis.
 
 ---
 
-### 📊 Alajemba Paul Uzochukwu — `20211261512` — Dashboard & Data Visualization
+### 📊 Alajemba Paul Uzochukwu — Dashboard & Data Visualization
 
 **Your part in one sentence:** the home screen that turns all your data into clear numbers and graphs.
 
@@ -395,7 +395,7 @@ your badges, and the green-engineering panel.
 
 ---
 
-### 🏆 Okereke Clement Kalu — `20211290762` — Gamification (XP, Levels, Badges, Streaks)
+### 🏆 Okereke Clement Kalu — Gamification (XP, Levels, Badges, Streaks)
 
 **Your part in one sentence:** the game layer that makes writing greener code fun and competitive.
 
@@ -423,7 +423,7 @@ and ranks everyone on the **team leaderboard**.
 
 ---
 
-### 🎨 Ikeh-ezeji Pamela Chinaza — `20211258792` — UI/UX & Design System
+### 🎨 Ikeh-ezeji Pamela Chinaza — UI/UX & Design System
 
 **Your part in one sentence:** the look and feel — the colours, fonts, animations, and the reusable
 building blocks that keep every screen consistent.
@@ -456,7 +456,7 @@ micro-animations, and a library of shared components everyone else builds with.
 
 ---
 
-### 📄 Joseph Ayo Isaac — `20211296902` — Reports & Export (PDF / CSV)
+### 📄 Joseph Ayo Isaac — Reports & Export (PDF / CSV)
 
 **Your part in one sentence:** the buttons that turn an analysis into a shareable report.
 
@@ -481,7 +481,7 @@ the EcoScore, all the metrics, the energy estimate, and every issue with its fix
 
 ---
 
-### 🚀 Nwali Izuchukwu Hosea — `20211269652` — Landing Page, Green Features & Deployment
+### 🚀 Nwali Izuchukwu Hosea — Landing Page, Green Features & Deployment
 
 **Your part in one sentence:** the "front door" of the app, the sustainability story, and how we run
 and ship it.
