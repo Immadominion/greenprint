@@ -124,7 +124,7 @@ export default async function LandingPage() {
                 </div>
                 <div className="grid gap-6 p-6 md:grid-cols-[auto_1fr] md:items-center">
                   <EcoScoreGauge score={demo.ecoScore.score} grade={demo.ecoScore.grade} rating={demo.ecoScore.rating} size={190} />
-                  <div className="space-y-2.5">
+                  <div className="min-w-0 space-y-2.5">
                     {demo.issues.slice(0, 3).map((i) => (
                       <div key={`${i.id}-${i.line}`} className="flex items-center justify-between gap-2 rounded-xl border border-border bg-muted/40 px-3 py-2.5">
                         <span className="truncate text-sm font-medium">{i.ruleTitle}</span>
@@ -154,12 +154,12 @@ export default async function LandingPage() {
         <FadeIn>
           <section className="mb-6">
             <div className="grid gap-10 rounded-[34px] bg-brand-soft p-8 sm:p-14 md:grid-cols-[1fr_clamp(300px,34%,440px)] md:items-center">
-              <div className="flex flex-col justify-between gap-8">
+              <div className="flex min-w-0 flex-col justify-between gap-8">
                 <div className="flex items-start gap-5">
                   <span className="grid size-16 shrink-0 place-items-center rounded-3xl bg-gradient-to-br from-brand-bright to-brand text-primary-foreground shadow-[0_16px_40px_-12px_rgba(232,93,12,0.6)]">
                     <Leaf className="size-8" />
                   </span>
-                  <h2 className="font-display text-[clamp(30px,4vw,56px)] font-extrabold leading-[0.98] tracking-[-0.03em]">
+                  <h2 className="min-w-0 font-display text-[clamp(28px,4vw,56px)] font-extrabold leading-[0.98] tracking-[-0.03em]">
                     Every problem comes with a greener fix.
                   </h2>
                 </div>
@@ -168,7 +168,7 @@ export default async function LandingPage() {
                   shows the faster, lighter alternative, with example code.
                 </p>
               </div>
-              <div className="rounded-2xl bg-card/70 p-3 shadow-soft">
+              <div className="min-w-0 rounded-2xl bg-card/70 p-3 shadow-soft">
                 <IssueCard issue={demo.issues[0]} />
               </div>
             </div>
@@ -177,7 +177,7 @@ export default async function LandingPage() {
 
         {/* WHAT IT DOES */}
         <section id="how" className="pt-8">
-          <h2 className="text-center font-display font-bold leading-[0.85] tracking-[-0.04em] text-[clamp(56px,13vw,190px)]">
+          <h2 className="text-center font-display font-bold leading-[0.85] tracking-[-0.04em] text-[clamp(44px,13vw,190px)]">
             what it does
           </h2>
 
@@ -334,7 +334,7 @@ function MiniStat({ label, value, eco }: { label: string; value: string; eco?: b
 function Stat({ value, label, color }: { value: ReactNode; label: string; color: string }) {
   return (
     <div>
-      <div className={`font-display text-[clamp(28px,5vw,52px)] font-extrabold tabular-nums ${color}`}>{value}</div>
+      <div className={`font-display text-[clamp(22px,5.5vw,52px)] font-extrabold tabular-nums ${color}`}>{value}</div>
       <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{label}</div>
     </div>
   );
@@ -369,12 +369,12 @@ function FeatureRow({
   return (
     <FadeIn>
       <div className="grid items-center gap-8 py-10 md:grid-cols-2 md:gap-16 md:py-16">
-        <div className={reverse ? "md:order-2" : ""}>
+        <div className={`min-w-0 ${reverse ? "md:order-2" : ""}`}>
           <span className={`inline-block rounded-full px-4 py-1.5 text-sm font-bold ${tagClass}`}>{tag}</span>
           <h3 className="mt-5 font-display text-[clamp(32px,4.4vw,64px)] font-extrabold leading-[0.98] tracking-[-0.035em]">{title}</h3>
           <p className="mt-4 max-w-lg text-lg text-muted-foreground">{body}</p>
         </div>
-        <div className={reverse ? "md:order-1" : ""}>
+        <div className={`min-w-0 ${reverse ? "md:order-1" : ""}`}>
           <div className="rounded-[26px] border border-border bg-gradient-to-b from-muted/50 to-transparent p-5 sm:p-8">{visual}</div>
         </div>
       </div>
