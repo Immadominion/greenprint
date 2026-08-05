@@ -1,4 +1,4 @@
-# Greenprint — Technical Architecture
+# Greenprint - Technical Architecture
 
 **Greenprint** is a *Sustainable AI Code Assistant Dashboard*: paste or upload source
 code and it statically analyses the code for inefficient / wasteful patterns, estimates
@@ -6,8 +6,8 @@ its energy and CO₂ cost, suggests greener alternatives, offers optional AI exp
 auto-documentation, and gamifies the whole loop (EcoScore, XP, levels, ranks, badges,
 streaks and a team leaderboard).
 
-> Course project — **SOE 508 · Special Topics in Software Engineering · Group 3 · Federal
-> University of Technology, Owerri (FUTO)**. See `src/lib/team.ts` for the 15-member roster
+> Course project - **SOE 508 · Special Topics in Software Engineering · Group 3 · Federal
+> University of Technology, Owerri (FUTO)**. See `src/lib/team.ts` for the 18-member roster
 > and each member's owned subsystem.
 
 ---
@@ -46,10 +46,10 @@ core analysis engine is **pure, dependency-free TypeScript** that runs in-proces
                      Optional: ANTHROPIC_API_KEY → Claude API
 ```
 
-Everything except the two AI panels works **100 % offline with zero configuration** — no
+Everything except the two AI panels works **100 % offline with zero configuration** - no
 API key, no external database, no service to provision.
 
-### Request lifecycle — analysing a snippet
+### Request lifecycle - analysing a snippet
 
 1. A visitor opens a route under the `(app)` route group. `src/app/(app)/layout.tsx`
    (a Server Component) calls `getSession()` (`src/lib/session.ts`); an unauthenticated
@@ -70,7 +70,7 @@ API key, no external database, no service to provision.
    `RewardOverlay`. Results (`AnalysisResults`) and the optional `AiPanel` render inline.
 6. The **AI panel** is lazy: clicking *Explain* / *Document* triggers `explainCodeAction`
    / `generateDocsAction`, which hit the SQLite AI cache first and only call Claude on a
-   miss (and only when a key is present — otherwise a deterministic demo answer).
+   miss (and only when a key is present - otherwise a deterministic demo answer).
 
 ---
 
@@ -78,7 +78,7 @@ API key, no external database, no service to provision.
 
 The engine lives in `src/lib/analysis/` and is orchestrated by `analyzeCode()` in
 `index.ts`. It is **synchronous, pure, and free of any third-party dependency or network
-call** — the same function would run unchanged in a Server Action, in the browser, or in a
+call** - the same function would run unchanged in a Server Action, in the browser, or in a
 Web Worker. It also times *itself* (`performance.now()`) to report a real, honest
 `analysisDurationMs` alongside the modelled estimates.
 
@@ -102,12 +102,12 @@ flowchart LR
 
 | Stage | File | What it does |
 |---|---|---|
-| **Detect language** | `languages.ts` | `detectLanguage(code, filename?)` — trusts the file extension first (`EXTENSION_MAP`), else sniffs content with cheap high-signal regexes. Supports 12 languages (`SUPPORTED_LANGUAGES`); falls back to `unknown` (still analysed, just without language-specific rules). |
+| **Detect language** | `languages.ts` | `detectLanguage(code, filename?)` - trusts the file extension first (`EXTENSION_MAP`), else sniffs content with cheap high-signal regexes. Supports 12 languages (`SUPPORTED_LANGUAGES`); falls back to `unknown` (still analysed, just without language-specific rules). |
 | **Pre-process** | `preprocess.ts` | A char-level state machine blanks every comment and string literal (preserving line/brace layout) so regex rules never fire inside a string or comment. In the same pass it computes, per line, the enclosing **block depth** (brace depth for C-like/SQL, indentation levels for Python/Ruby) and **loop-nesting depth**, plus `loopHeaderLines`, `nestedLoopLines`, `maxLoopNesting`. This shared structural context is what lets the rules reliably flag O(n²) nested loops and "work inside a loop". |
-| **Metrics** | `metrics.ts` | Size (`computeSizeMetrics`: code/comment/blank lines, comment ratio, duplicate-line groups) and complexity (`computeComplexityMetrics`: McCabe cyclomatic complexity by counting decision points, max nesting, function count/sizes via `getFunctionBlocks`, and a simplified **Maintainability Index**). All approximations are deliberate — no full parser — to keep the engine tiny and fast. |
+| **Metrics** | `metrics.ts` | Size (`computeSizeMetrics`: code/comment/blank lines, comment ratio, duplicate-line groups) and complexity (`computeComplexityMetrics`: McCabe cyclomatic complexity by counting decision points, max nesting, function count/sizes via `getFunctionBlocks`, and a simplified **Maintainability Index**). All approximations are deliberate - no full parser - to keep the engine tiny and fast. |
 | **Rules** | `rules.ts` | `runRules(pre)` runs the rule catalogue over the cleaned source using the nesting context, then de-dupes by `(rule id + line)`. 17 pattern rules (regex-driven `Detector`s) plus 4 structural detectors (`detectNestedLoops`, `detectExponentialRecursion`, `detectLongFunctions`, `detectDeepNesting`). Each hit becomes a `CodeIssue` with message, *why it costs energy*, a greener `suggestion`, an optional `betterExample`, an `impact` weight and a modelled `co2SavingGrams`. `RULE_CATALOG` (all 21 rule metas) is the source of truth for the in-app "How it works" page. |
 | **Energy estimate** | `estimate.ts` | `inferComplexityClass` maps loop nesting + recursion (+ presence of a sort) to a Big-O class; `buildEnergyEstimate` turns that class into modelled ops/runtime/energy/CO₂ at a reference input, plus the CO₂ that fixing the class could save. |
-| **Scores** | `estimate.ts` | `computeEcoScore` (0–100, graded A+…F) and `computeQualityScore` (0–100, maintainability-anchored). |
+| **Scores** | `estimate.ts` | `computeEcoScore` (0-100, graded A+…F) and `computeQualityScore` (0-100, maintainability-anchored). |
 | **Assemble** | `index.ts` | Sorts issues by severity then line, tallies severity counts, picks the top de-duplicated green suggestions, stamps `analyzedAt` + the real `analysisDurationMs`, and computes a fast FNV-1a `hashCode` used to key the AI cache and dedupe identical submissions. |
 
 The full output shape is `AnalysisReport` in `src/lib/analysis/types.ts`.
@@ -117,7 +117,7 @@ The full output shape is `AnalysisReport` in `src/lib/analysis/types.ts`.
 ## 3. The energy & CO₂ model
 
 Defined entirely by the documented constants at the top of `src/lib/analysis/estimate.ts`.
-It is an explicit, transparent **teaching model, not a measurement** — the result screens,
+It is an explicit, transparent **teaching model, not a measurement** - the result screens,
 the PDF/CSV export and the "How it works" page all say so, and every estimate ships with
 its list of assumptions.
 
@@ -155,17 +155,17 @@ else `O(n)`, 0 ⇒ `O(n log n)` if a sort is present else `O(1)`.
 Email + password via **Better Auth**, backed by the same local SQLite DB through the
 Drizzle adapter.
 
-- **Server instance** — `src/lib/auth.ts`. `betterAuth({...})` with
+- **Server instance** - `src/lib/auth.ts`. `betterAuth({...})` with
   `drizzleAdapter(db, { provider: "sqlite", schema: { user, session, account, verification } })`,
   `emailAndPassword` enabled (`autoSignIn: true`, `minPasswordLength: 8`), a 30-day session
   with a 5-minute cookie cache, and the `nextCookies()` plugin (so cookies work inside
   Server Actions). Reads `BETTER_AUTH_URL` / `BETTER_AUTH_SECRET` from env.
-- **Route handler** — `src/app/api/auth/[...all]/route.ts` mounts every Better Auth
+- **Route handler** - `src/app/api/auth/[...all]/route.ts` mounts every Better Auth
   endpoint under `/api/auth/*` via `toNextJsHandler(auth)` (exports `GET`, `POST`).
-- **Browser client** — `src/lib/auth-client.ts` exposes `signIn/signUp/signOut/useSession`
+- **Browser client** - `src/lib/auth-client.ts` exposes `signIn/signUp/signOut/useSession`
   from `better-auth/react`; consumed by `src/components/app/auth-form.tsx` on the
   `(auth)/login` and `(auth)/signup` pages.
-- **Server helpers** — `src/lib/session.ts`: `getSession()` reads the session from request
+- **Server helpers** - `src/lib/session.ts`: `getSession()` reads the session from request
   headers; `requireUser()` redirects to `/login` when there is none. The `(app)` layout
   and every write action begin by verifying the session, so protected pages and directly-
   callable Server Actions are both guarded.
@@ -192,14 +192,14 @@ runtime by `src/lib/db/migrate.ts` (idempotent). Eight tables in two groups.
 
 | Table | Purpose | Notable columns |
 |---|---|---|
-| `game_profile` | One row per user — the gamification state. | `xp`, `level`, `streakCount`, `longestStreak`, `lastActiveDate` (`YYYY-MM-DD`), lifetime `totalAnalyses` / `totalIssuesFixed` / `totalCo2SavedGrams`, plus `displayName` / `regNumber` for the roster. PK = `userId` → `user`. |
+| `game_profile` | One row per user - the gamification state. | `xp`, `level`, `streakCount`, `longestStreak`, `lastActiveDate` (`YYYY-MM-DD`), lifetime `totalAnalyses` / `totalIssuesFixed` / `totalCo2SavedGrams`, plus `displayName` / `regNumber` for the roster. PK = `userId` → `user`. |
 | `analysis` | History of every run; powers dashboard trends, history and reports. | Denormalised summary (`ecoScore`, `grade`, `qualityScore`, `complexityClass`, `issueCount`, `criticalCount`, `co2Grams`, `co2SavingGrams`, `xpAwarded`) **plus** the full `AnalysisReport` JSON in `report` and the original `code`. |
 | `user_badge` | Which badges a user has earned (definitions live in code). | `userId`, `badgeId`, `earnedAt`, with a `uniqueIndex(userId, badgeId)`. |
 | `ai_cache` | Cache of AI results keyed by `${kind}:${hash}`. | `kind` (`explain`/`document`), `hash`, `content` (markdown), `model`, `source` (`ai`/`demo`), `hits` counter. Implements the "efficient AI caching" requirement. |
 
 **Query discipline** (`src/lib/data.ts`, `server-only`): list queries (`getRecentAnalyses`,
 `getTrend`, `getLeaderboard`) select only the light columns each view renders and never pull
-the heavy `code` / `report` blobs — the "optimised database access" green feature.
+the heavy `code` / `report` blobs - the "optimised database access" green feature.
 
 ---
 
@@ -208,49 +208,49 @@ the heavy `code` / `report` blobs — the "optimised database access" green feat
 Pure functions in `src/lib/game/` (`levels.ts`, `xp.ts`, `badges.ts`, re-exported from
 `index.ts`); persisted by `analyzeAndSaveAction`.
 
-**XP per analysis** — `computeXpAward` (`xp.ts`): `+10` base, `+round(EcoScore × 0.4)`
+**XP per analysis** - `computeXpAward` (`xp.ts`): `+10` base, `+round(EcoScore × 0.4)`
 (up to +40 for clean code), `+ (crit×8 + high×5 + med×3 + low×1)` for issues surfaced,
 `+20` for an A/A+ grade, `+25` for the first analysis of the day. Rewarding *both* clean
 code and engagement means beginners and experts both progress.
 
-**Level curve** — `levels.ts`. Cumulative XP to *reach* level L is `60 · L · (L−1)`
+**Level curve** - `levels.ts`. Cumulative XP to *reach* level L is `60 · L · (L−1)`
 (L1=0, L2=120, L3=360, L5=1,200, L10=5,400, L20=22,800). `levelFromXp`, `xpForLevel` and
 `levelProgress` (percent to next level) drive the XP bars and rings.
 
-**Ranks** — tree-growth themed, keyed by min level: 🌱 Seedling (1) → 🌿 Sprout (4) →
+**Ranks** - tree-growth themed, keyed by min level: 🌱 Seedling (1) → 🌿 Sprout (4) →
 🍃 Sapling (7) → 🌳 Young Oak (10) → 🌳 Mighty Oak (14) → 🌲 Redwood (18) →
 🌲 Ancient Forest (22).
 
-**Badges** — 12 definitions in `badges.ts` across bronze/silver/gold, each a pure
+**Badges** - 12 definitions in `badges.ts` across bronze/silver/gold, each a pure
 `check(ctx)` predicate (e.g. *First Steps*, *Eco Warrior* ≥90, *Zero Waste* =100,
 *Loop Slayer* / *N+1 Terminator* / *The Memoizer* fire when a specific rule id appears,
 *Polyglot* ≥3 languages, streak badges, *Carbon Cutter*, *Forest Guardian* level 10).
 `evaluateBadges` returns only newly-qualified, not-yet-owned badges; the celebratory
 `RewardOverlay` announces them.
 
-**Streaks** — `nextStreak` (`xp.ts`) compares `lastActiveDate` to today's local day key:
+**Streaks** - `nextStreak` (`xp.ts`) compares `lastActiveDate` to today's local day key:
 same day = unchanged, +1 day = extend, gap = reset to 1.
 
-**Leaderboard** — `getLeaderboard` / `getUserRank` (`data.ts`) rank `game_profile` by XP;
+**Leaderboard** - `getLeaderboard` / `getUserRank` (`data.ts`) rank `game_profile` by XP;
 rendered as a podium + list on `/leaderboard`.
 
 ---
 
 ## 7. The AI layer
 
-`src/lib/ai/index.ts` (`server-only`) provides two features — **Explain this code** and
-**Auto-generate documentation** — with two sustainability/robustness properties:
+`src/lib/ai/index.ts` (`server-only`) provides two features - **Explain this code** and
+**Auto-generate documentation** - with two sustainability/robustness properties:
 
 1. **Caching by code hash.** Results are stored in `ai_cache` keyed by `(kind + FNV-1a hash
    of the code)`. `readCache` bumps a `hits` counter; identical code never pays for the same
    Claude call twice. `getCacheStats` surfaces "requests served from cache" on the dashboard.
-2. **Demo fallback.** With no `ANTHROPIC_API_KEY` (`isAiLive()` false) — or if a live call
-   throws — both features return a genuinely useful, deterministic markdown answer built
+2. **Demo fallback.** With no `ANTHROPIC_API_KEY` (`isAiLive()` false) - or if a live call
+   throws - both features return a genuinely useful, deterministic markdown answer built
    from the offline `AnalysisReport` (`demoExplain` / `demoDocument`). So the whole app works
    for every teammate with zero configuration; a key only upgrades these two panels from
    "demo" to live Claude.
 
-**Model choice.** Defaults to `ANTHROPIC_MODEL` or `claude-haiku-4-5-20251001` — using the
+**Model choice.** Defaults to `ANTHROPIC_MODEL` or `claude-haiku-4-5-20251001` - using the
 smallest capable model is itself a green choice. Calls go through `callClaude` (Anthropic
 Messages API, `max_tokens: 1400`, task-specific system prompts). The Server Actions
 `explainCodeAction` / `generateDocsAction` verify the session, and the result carries
@@ -267,7 +267,7 @@ Messages API, `max_tokens: 1400`, task-specific system prompts). The Server Acti
 | Resource-intensive code detection | `analysis/rules.ts` (resource/energy/loop rules) over `analysis/preprocess.ts` loop context |
 | Algorithmic optimization | `analysis/estimate.ts` (`inferComplexityClass`, `optimisedClass`) + the `nested-loops` / `exponential-recursion` rules |
 | Efficient AI caching | `lib/ai/index.ts` (`readCache`/`writeCache`) + `db/schema.ts` `ai_cache` table |
-| Optimized database access | `lib/data.ts` — list queries omit heavy `code`/`report` columns |
+| Optimized database access | `lib/data.ts` - list queries omit heavy `code`/`report` columns |
 | Lightweight architecture | dependency-free `analysis/*`; local libSQL file (`db/index.ts`); no heavy runtime deps |
 | Execution & resource measurement | real `analysisDurationMs` in `analysis/index.ts` shown beside modelled estimates from `estimate.ts` |
 
@@ -293,11 +293,11 @@ Messages API, `max_tokens: 1400`, task-specific system prompts). The Server Acti
 greenprint/
 ├── drizzle/                     generated SQL migrations + meta (applied at runtime)
 ├── scripts/
-│   └── smoke-analysis.ts        `npm run smoke` — sanity-checks the engine on 3 snippets
+│   └── smoke-analysis.ts        `npm run smoke` - sanity-checks the engine on 3 snippets
 ├── src/
 │   ├── app/
 │   │   ├── (auth)/login|signup  auth pages (auth-form)
-│   │   ├── (app)/               protected group — shares layout.tsx (session gate + AppShell)
+│   │   ├── (app)/               protected group - shares layout.tsx (session gate + AppShell)
 │   │   │   ├── dashboard/       hero, stat tiles, EcoScore trend, badges, green metrics
 │   │   │   ├── workspace/       the analyze screen (WorkspaceClient)
 │   │   │   ├── history/         list + [id] detail (persisted report + AI panel + export)

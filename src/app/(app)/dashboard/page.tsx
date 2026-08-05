@@ -219,7 +219,7 @@ export default async function DashboardPage() {
                   {badges.slice(0, 8).map((b) => (
                     <div
                       key={b.id}
-                      title={`${b.def.name} — ${b.def.description}`}
+                      title={`${b.def.name} - ${b.def.description}`}
                       className="flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium"
                     >
                       <span className="text-base leading-none">{b.def.emoji}</span>
@@ -248,7 +248,7 @@ export default async function DashboardPage() {
                     <f.icon className="mt-0.5 size-4 shrink-0 text-eco-strong" />
                     <div>
                       <span className="font-medium">{f.label}</span>
-                      <span className="text-muted-foreground"> — {f.note}</span>
+                      <span className="text-muted-foreground"> - {f.note}</span>
                     </div>
                   </li>
                 ))}

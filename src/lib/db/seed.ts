@@ -1,6 +1,6 @@
 /**
- * Seeds the database with the 15 active Group-3 members as demo accounts, a
- * populated team leaderboard, earned badges, and a realistic analysis history —
+ * Seeds the database with the 18 Group-3 members as demo accounts, a
+ * populated team leaderboard, earned badges, and a realistic analysis history -
  * so the app looks alive the moment it starts. Runs only when the DB is empty.
  *
  * Every demo account uses the shared password in team.ts (DEMO_PASSWORD).
@@ -81,7 +81,7 @@ async function seedAnalysis(userId: string, exampleId: string, daysAgo: number) 
 export async function runSeed() {
   const existing = await db.select().from(user).limit(1);
   if (existing.length > 0) {
-    console.log("• Seed skipped — database already has data.");
+    console.log("• Seed skipped - database already has data.");
     return;
   }
 

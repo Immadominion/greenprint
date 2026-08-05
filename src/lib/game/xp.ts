@@ -3,7 +3,7 @@
  * -------------------------
  * How much XP a single analysis is worth, and how the daily streak advances.
  * XP rewards BOTH writing clean code (high EcoScore) and engaging with feedback
- * (issues surfaced) — so beginners and experts both make progress.
+ * (issues surfaced) - so beginners and experts both make progress.
  */
 import type { AnalysisReport } from "@/lib/analysis";
 

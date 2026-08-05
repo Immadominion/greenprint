@@ -1,5 +1,5 @@
 /**
- * Greenprint · Analysis Engine — Type Definitions
+ * Greenprint · Analysis Engine - Type Definitions
  * -------------------------------------------------
  * These types describe the output of the fully-offline static analysis engine.
  * Nothing here depends on any third-party package or on the network, so the
@@ -58,7 +58,7 @@ export interface CodeIssue {
   suggestion: string;
   /** Optional short code example of the fixed version. */
   betterExample?: string;
-  /** Relative impact weight 0..1 — how much energy this pattern tends to waste. */
+  /** Relative impact weight 0..1 - how much energy this pattern tends to waste. */
   impact: number;
   /** Estimated grams of CO2 saved per run if this issue is fixed (modelled). */
   co2SavingGrams: number;
@@ -149,7 +149,7 @@ export interface AnalysisReport {
   analyzedAt: string; // ISO timestamp
   /** REAL measured wall-clock time the analysis pass took (honest metric). */
   analysisDurationMs: number;
-  /** Fast content hash — used to cache AI calls and dedupe identical submissions. */
+  /** Fast content hash - used to cache AI calls and dedupe identical submissions. */
   hash: string;
 }
 
@@ -173,7 +173,7 @@ export const SEVERITY_WEIGHT: Record<Severity, number> = {
 /**
  * Modelled grams of CO2 a single occurrence of an issue tends to waste per run,
  * before the rule's own impact weight is applied. These are deliberately small,
- * illustrative constants — the UI always labels the resulting numbers as estimates.
+ * illustrative constants - the UI always labels the resulting numbers as estimates.
  */
 export const CO2_BASE: Record<Severity, number> = {
   critical: 2.4,

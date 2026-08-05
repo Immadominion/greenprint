@@ -21,7 +21,7 @@ export const EXAMPLES: CodeExample[] = [
     id: "n-plus-one",
     label: "N+1 Database Query",
     language: "javascript",
-    description: "A query hidden inside nested loops — the classic scaling killer.",
+    description: "A query hidden inside nested loops - the classic scaling killer.",
     tone: "problem",
     code: `async function loadOrderTotals(users, orders) {
   const totals = [];
@@ -58,7 +58,7 @@ def print_series(count):
     id: "string-builder",
     label: "String Building in a Loop",
     language: "java",
-    description: "Immutable strings re-allocated every iteration — quadratic memory churn.",
+    description: "Immutable strings re-allocated every iteration - quadratic memory churn.",
     tone: "problem",
     code: `public class Report {
     public String build(String[] rows) {
@@ -107,7 +107,7 @@ def print_series(count):
     id: "clean-util",
     label: "Clean Utility Function",
     language: "typescript",
-    description: "Small, single-purpose, well-commented — a healthy baseline.",
+    description: "Small, single-purpose, well-commented - a healthy baseline.",
     tone: "clean",
     code: `/** Format bytes into a human-readable string. */
 export function formatBytes(bytes: number): string {

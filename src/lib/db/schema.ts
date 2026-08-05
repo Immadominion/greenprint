@@ -6,7 +6,7 @@
  *   2. Greenprint app tables                (gameProfile, analysis, userBadge, aiCache)
  *
  * SQLite keeps the whole app zero-config: the database is a single local file
- * (`greenprint.db`) created on first run — nothing to install or provision.
+ * (`greenprint.db`) created on first run - nothing to install or provision.
  */
 import { sql } from "drizzle-orm";
 import { integer, real, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";

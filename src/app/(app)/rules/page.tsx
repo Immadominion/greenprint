@@ -38,7 +38,7 @@ export default function RulesPage() {
           <h1 className="font-display text-2xl font-bold tracking-tight">How Greenprint works</h1>
           <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
             The entire analysis engine runs <span className="font-medium text-foreground">offline</span>, with no API key. It
-            is a lightweight, dependency-free static analyser — heuristic by design, which keeps it fast and green.
+            is a lightweight, dependency-free static analyser - heuristic by design, which keeps it fast and green.
           </p>
         </div>
       </FadeIn>

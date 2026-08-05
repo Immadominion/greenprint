@@ -21,7 +21,7 @@ export default function TeamPage() {
           </p>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
             Greenprint was designed and built by {TEAM_MEMBERS.length} students. Each member owns a distinct part of the
-            system — from the analysis engine to the gamification and UI.
+            system - from the analysis engine to the gamification and UI.
           </p>
         </div>
       </FadeIn>

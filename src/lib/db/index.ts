@@ -3,7 +3,7 @@
  * ----------------------------------------------
  * A single libSQL client pointed at a local file by default. libSQL ships
  * pre-built binaries for every common OS, so `npm install` "just works" with no
- * native compilation step — important because ~15 teammates must run this.
+ * native compilation step - important because ~18 teammates must run this.
  *
  * Set DATABASE_URL to a Turso URL (libsql://…) to run against the cloud instead.
  */

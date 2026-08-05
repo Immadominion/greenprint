@@ -63,7 +63,7 @@ export function AnalysisResults({ report }: { report: AnalysisReport }) {
             </span>
           </div>
           <h3 className="mt-3 font-display text-xl font-bold">
-            {report.ecoScore.rating} — {report.ecoScore.score}/100
+            {report.ecoScore.rating} - {report.ecoScore.score}/100
           </h3>
           <p className="mt-1 text-sm text-muted-foreground">
             {report.issues.length === 0
@@ -187,7 +187,7 @@ export function AnalysisResults({ report }: { report: AnalysisReport }) {
         {visible.length === 0 ? (
           <div className="grid place-items-center rounded-2xl border border-dashed border-border bg-card py-12 text-center">
             <Leaf className="size-8 text-eco" />
-            <p className="mt-2 font-medium">{filter === "all" ? "No issues — beautifully green code!" : `No ${filter} issues.`}</p>
+            <p className="mt-2 font-medium">{filter === "all" ? "No issues - beautifully green code!" : `No ${filter} issues.`}</p>
           </div>
         ) : (
           <div className="space-y-3">

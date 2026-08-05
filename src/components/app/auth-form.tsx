@@ -108,7 +108,7 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
           onClick={() => {
             setEmail(DEMO_EMAIL);
             setPassword(DEMO_PASSWORD);
-            toast.info("Demo account filled in — press Sign in.");
+            toast.info("Demo account filled in - press Sign in.");
           }}
           className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-dashed border-border py-2 text-xs text-muted-foreground transition-colors hover:border-brand/40 hover:text-brand"
         >

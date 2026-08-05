@@ -4,12 +4,12 @@
 
 ### A green blueprint for your code.
 
-**A Sustainable AI Code Assistant Dashboard** — it analyses your code for wasteful patterns,
+**A Sustainable AI Code Assistant Dashboard** - it analyses your code for wasteful patterns,
 estimates its energy & CO₂ cost, and coaches you toward faster, greener alternatives.
 
 `SOE 508 · Special Topics in Software Engineering · Group 3 · FUTO`
 
-### ▶ [Live demo — greenprint-eta.vercel.app](https://greenprint-eta.vercel.app)
+### ▶ [Live demo - greenprint-eta.vercel.app](https://greenprint-eta.vercel.app)
 
 _Click **Book a demo** → **"Use a demo account"**, or sign in with any `name@greenprint.demo` email, password **`greenprint`**._
 
@@ -31,7 +31,7 @@ Paste or upload a snippet and Greenprint instantly (and **fully offline**) gives
 **EcoScore** out of 100, detects inefficient patterns (nested loops, N+1 database queries,
 exponential recursion, and 15+ more), estimates the execution time, energy and CO₂ it would
 burn, and hands you a concrete greener fix for every problem. Then it makes improving your
-code a game — you earn XP, keep streaks, unlock badges, and climb your team's leaderboard.
+code a game - you earn XP, keep streaks, unlock badges, and climb your team's leaderboard.
 
 |  |  |
 |---|---|
@@ -64,7 +64,7 @@ analysis engine · real + modelled execution-time / resource measurement.
 
 ## 🚀 Quick start (this is all you need)
 
-**Prerequisites:** [Node.js](https://nodejs.org) **20.9 or newer** (comes with `npm`). Nothing else —
+**Prerequisites:** [Node.js](https://nodejs.org) **20.9 or newer** (comes with `npm`). Nothing else -
 no database to install, no API keys, no native build tools.
 
 ```bash
@@ -162,22 +162,22 @@ Everything is current, non-deprecated tooling as of the build date.
 ## ☁️ Deployment
 
 Live on **Vercel** with a **Turso** (libSQL) cloud database. Because the engine is libSQL-native,
-going live needed **no code changes** — just point `DATABASE_URL` / `DATABASE_AUTH_TOKEN` at Turso.
+going live needed **no code changes** - just point `DATABASE_URL` / `DATABASE_AUTH_TOKEN` at Turso.
 Local dev still uses the offline SQLite file, so teammates run it with zero setup. Production env
 vars: `DATABASE_URL`, `DATABASE_AUTH_TOKEN`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL` (+ optional
 `ANTHROPIC_API_KEY`). Pushes to `main` auto-deploy.
 
 ## 📚 Documentation
 
-- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — how the system is put together (technical).
-- **[docs/DEFENSE-GUIDE.md](docs/DEFENSE-GUIDE.md)** — plain-English guide for the presentation: what
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** - how the system is put together (technical).
+- **[docs/DEFENSE-GUIDE.md](docs/DEFENSE-GUIDE.md)** - plain-English guide for the presentation: what
   every part does and what each team member should be ready to explain.
-- **[docs/ROADMAP.md](docs/ROADMAP.md)** — how it was built and the team's engineering rules.
+- **[docs/ROADMAP.md](docs/ROADMAP.md)** - how it was built and the team's engineering rules.
 
 ---
 
 <div align="center">
 
-Built by **Group 3** — Federal University of Technology, Owerri · SOE 508.
+Built by **Group 3** - Federal University of Technology, Owerri · SOE 508.
 
 </div>

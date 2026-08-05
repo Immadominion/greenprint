@@ -1,19 +1,19 @@
 /**
  * Greenprint · AI layer (server-only)
  * -----------------------------------
- * Two AI features — "Explain this code" and "Auto-generate documentation" —
+ * Two AI features - "Explain this code" and "Auto-generate documentation" -
  * powered by Anthropic Claude, with two green/robustness properties:
  *
- *  1. CACHING  — results are cached in SQLite keyed by (kind + code hash). The
+ *  1. CACHING  - results are cached in SQLite keyed by (kind + code hash). The
  *     same code never pays for the same Claude call twice. This is the
  *     "efficient caching to reduce repeated AI requests" green requirement.
  *
- *  2. DEMO FALLBACK — with no ANTHROPIC_API_KEY, both features still return a
+ *  2. DEMO FALLBACK - with no ANTHROPIC_API_KEY, both features still return a
  *     genuinely useful, deterministic answer built from the offline analysis.
  *     So the whole app works for every teammate with zero configuration; a key
  *     only upgrades these two panels from "demo" to live Claude.
  *
- * We default to the small, efficient Haiku model — using the smallest capable
+ * We default to the small, efficient Haiku model - using the smallest capable
  * model is itself a sustainability choice.
  */
 import "server-only";
@@ -102,14 +102,14 @@ function demoExplain(code: string, language: Language, report: AnalysisReport): 
 
   out.push(`### Sustainability review`);
   out.push(
-    `**EcoScore ${report.ecoScore.score}/100 — grade ${report.ecoScore.grade} (${report.ecoScore.rating}).** ` +
+    `**EcoScore ${report.ecoScore.score}/100 - grade ${report.ecoScore.grade} (${report.ecoScore.rating}).** ` +
       (report.issues.length === 0
-        ? "No inefficiency patterns were detected — this code is already lean. 🌿"
+        ? "No inefficiency patterns were detected - this code is already lean. 🌿"
         : `The analyser found ${report.issues.length} issue(s) worth attention:`),
   );
   for (const issue of report.issues.slice(0, 6)) {
     out.push(
-      `- **${issue.ruleTitle}** _(line ${issue.line}, ${issue.severity})_ — ${issue.message} ` +
+      `- **${issue.ruleTitle}** _(line ${issue.line}, ${issue.severity})_ - ${issue.message} ` +
         `\n  _Why it matters:_ ${issue.why}\n  _Greener alternative:_ ${issue.suggestion}`,
     );
   }
@@ -173,7 +173,7 @@ export async function explainCode(input: { code: string; language: Language; rep
         "You are Greenprint, an assistant that explains code to developers and coaches them toward energy-efficient, sustainable software. Be clear and encouraging. Use short markdown sections. First explain what the code does, then discuss efficiency/sustainability and concrete greener alternatives.";
       const issueSummary = report.issues
         .slice(0, 8)
-        .map((i) => `- line ${i.line}: ${i.ruleTitle} — ${i.message}`)
+        .map((i) => `- line ${i.line}: ${i.ruleTitle} - ${i.message}`)
         .join("\n");
       const prompt = `Language: ${LANGUAGE_LABELS[language]}\nStatic analysis found EcoScore ${report.ecoScore.score}/100, complexity ${report.energy.complexityClass}.\nDetected issues:\n${issueSummary || "none"}\n\nCode:\n\`\`\`${language}\n${code}\n\`\`\``;
       const content = await callClaude(system, prompt);

@@ -19,11 +19,11 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Greenprint — Sustainable AI Code Assistant",
+    default: "Greenprint - Sustainable AI Code Assistant",
     template: "%s · Greenprint",
   },
   description:
-    "Greenprint analyses your code for inefficient patterns, estimates its energy and CO₂ cost, and recommends greener, faster alternatives — with AI explanations and a gamified EcoScore.",
+    "Greenprint analyses your code for inefficient patterns, estimates its energy and CO₂ cost, and recommends greener, faster alternatives - with AI explanations and a gamified EcoScore.",
   keywords: [
     "sustainable computing",
     "green software",

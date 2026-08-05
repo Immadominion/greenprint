@@ -4,7 +4,7 @@
  * We support a spread of popular languages. Detection is two-stage:
  *   1. Trust the file extension when we have a filename.
  *   2. Otherwise sniff the source with cheap, high-signal heuristics.
- * The engine still produces useful output for "unknown" — it just skips the
+ * The engine still produces useful output for "unknown" - it just skips the
  * language-specific rules.
  */
 import type { Language } from "./types";
@@ -76,7 +76,7 @@ function fromExtension(filename?: string): Language | null {
   return EXTENSION_MAP[ext] ?? null;
 }
 
-/** Very cheap content sniffing — first match wins, ordered by signal strength. */
+/** Very cheap content sniffing - first match wins, ordered by signal strength. */
 function fromContent(code: string): Language {
   const c = code;
   if (/^\s*<\?php/.test(c)) return "php";

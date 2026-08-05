@@ -35,13 +35,13 @@ const LAYERS = [
     icon: Layers,
     title: "The face",
     detail:
-      "The website you see — landing page, dashboard, and the Analyze workspace. Built with Next.js (App Router) and React, mostly as fast Server Components.",
+      "The website you see - landing page, dashboard, and the Analyze workspace. Built with Next.js (App Router) and React, mostly as fast Server Components.",
   },
   {
     icon: Cpu,
     title: "The brain",
     detail:
-      "The analysis engine — pure, dependency-free TypeScript that reads your code and scores it. Runs 100% offline; this is the software-engineering core.",
+      "The analysis engine - pure, dependency-free TypeScript that reads your code and scores it. Runs 100% offline; this is the software-engineering core.",
   },
   {
     icon: Database,
@@ -57,15 +57,15 @@ const PIPELINE = [
   "Measure (size, complexity, nesting)",
   "Detect 21 inefficiency rules",
   "Estimate energy & CO₂ (modelled)",
-  "Score → EcoScore 0–100",
+  "Score → EcoScore 0-100",
   "Save + award XP & badges",
   "Show results + greener fixes",
 ];
 
 const FEATURES = [
-  { icon: Lock, title: "Secure authentication", detail: "Email + password via Better Auth — hashed passwords, session cookies, guarded routes." },
+  { icon: Lock, title: "Secure authentication", detail: "Email + password via Better Auth - hashed passwords, session cookies, guarded routes." },
   { icon: FileText, title: "Code editor / upload", detail: "CodeMirror 6 editor, file upload with language auto-detect, and one-click examples." },
-  { icon: Wand2, title: "AI code explanation", detail: "Explain this code — Claude Haiku 4.5 when a key is set, an offline demo otherwise." },
+  { icon: Wand2, title: "AI code explanation", detail: "Explain this code - Claude Haiku 4.5 when a key is set, an offline demo otherwise." },
   { icon: PenLine, title: "AI documentation", detail: "Auto-document generates clean per-function documentation for the snippet." },
   { icon: Gauge, title: "Code quality analysis", detail: "Cyclomatic complexity, nesting depth, function length, and a maintainability index." },
   { icon: ScanSearch, title: "Inefficiency detection", detail: "A 21-rule catalogue: nested loops, N+1 queries, SELECT *, exponential recursion, and more." },
@@ -76,9 +76,9 @@ const FEATURES = [
 
 const GREEN = [
   { title: "Resource-intensive code detection", detail: "The engine flags the exact costly lines." },
-  { title: "Algorithmic optimization advice", detail: "Every issue suggests a better approach — O(n²) toward O(n)." },
+  { title: "Algorithmic optimization advice", detail: "Every issue suggests a better approach - O(n²) toward O(n)." },
   { title: "Efficient AI caching", detail: "Identical code is fingerprinted; repeat AI requests are served from cache." },
-  { title: "Optimized database access", detail: "List queries fetch only the columns they display — less data moved." },
+  { title: "Optimized database access", detail: "List queries fetch only the columns they display - less data moved." },
   { title: "Lightweight architecture", detail: "The analysis engine has zero external dependencies and runs offline." },
   { title: "Execution-time & resource measurement", detail: "Real analysis timing plus a modelled runtime and energy estimate for your code." },
 ];
@@ -93,7 +93,7 @@ const RESOURCES = [
   { icon: BookOpen, title: "How it works", detail: "The analysis methodology and the full rule catalogue, in the app.", href: "/rules", external: false },
   { icon: Code2, title: "Source code", detail: "The complete repository on GitHub.", href: REPO, external: true },
   { icon: Rocket, title: "Live demo", detail: "The deployed app on Vercel.", href: LIVE, external: true },
-  { icon: FileText, title: "Defense guide", detail: "Plain-English guide — one part per team member.", href: `${REPO}/blob/main/docs/DEFENSE-GUIDE.md`, external: true },
+  { icon: FileText, title: "Defense guide", detail: "Plain-English guide - one part per team member.", href: `${REPO}/blob/main/docs/DEFENSE-GUIDE.md`, external: true },
   { icon: Server, title: "Architecture", detail: "How the system is put together (technical).", href: `${REPO}/blob/main/docs/ARCHITECTURE.md`, external: true },
   { icon: FileText, title: "Project brief", detail: "The original assignment + requirements traceability.", href: `${REPO}/blob/main/docs/PROJECT-BRIEF.md`, external: true },
 ];
@@ -138,14 +138,14 @@ export default function DocsPage() {
           tells you what it <span className="font-medium text-foreground">costs the planet</span>. Paste or upload a
           snippet and it instantly, and fully offline, gives it an <span className="font-medium text-eco-strong">EcoScore</span>{" "}
           out of 100, detects wasteful patterns, estimates the time, energy and CO₂ it would burn, and hands you a
-          greener fix for every problem — then turns improving your code into a game with XP, badges and a team
+          greener fix for every problem - then turns improving your code into a game with XP, badges and a team
           leaderboard.
         </div>
       </section>
 
       {/* Architecture */}
       <section>
-        <SectionTitle icon={Layers}>Architecture — three layers</SectionTitle>
+        <SectionTitle icon={Layers}>Architecture - three layers</SectionTitle>
         <Stagger className="grid gap-3 sm:grid-cols-3">
           {LAYERS.map((l) => (
             <StaggerItem key={l.title}>
@@ -263,7 +263,7 @@ export default function DocsPage() {
           Then open <span className="font-mono text-foreground">http://localhost:3000</span>. Prerequisite: Node.js 20.9+.
           Sign in with any seeded account (e.g. <span className="font-mono text-foreground">victor.ozuzu@greenprint.demo</span>)
           using the password <span className="font-mono text-foreground">greenprint</span>, or click{" "}
-          <span className="font-medium text-foreground">Create an account</span>. Live Claude AI is optional — add an{" "}
+          <span className="font-medium text-foreground">Create an account</span>. Live Claude AI is optional - add an{" "}
           <span className="font-mono text-foreground">ANTHROPIC_API_KEY</span> to <span className="font-mono text-foreground">.env</span>.
         </p>
       </section>
@@ -297,7 +297,7 @@ export default function DocsPage() {
       </section>
 
       <p className="pt-2 text-center text-xs text-muted-foreground">
-        Built by {COURSE.group} — {COURSE.institution} · {COURSE.code}.
+        Built by {COURSE.group} - {COURSE.institution} · {COURSE.code}.
       </p>
     </div>
   );

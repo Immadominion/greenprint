@@ -25,7 +25,7 @@ function slug(title: string) {
 function exportCsv(report: AnalysisReport, title: string) {
   const esc = (v: unknown) => `"${String(v).replace(/"/g, '""')}"`;
   const rows: unknown[][] = [
-    ["Greenprint — Sustainability & Code Quality Report"],
+    ["Greenprint - Sustainability & Code Quality Report"],
     ["Title", title],
     ["Language", LANGUAGE_LABELS[report.language]],
     ["Generated", new Date().toISOString()],

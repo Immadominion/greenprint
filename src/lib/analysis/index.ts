@@ -1,5 +1,5 @@
 /**
- * Greenprint · Analysis Engine — public entry point
+ * Greenprint · Analysis Engine - public entry point
  * -------------------------------------------------
  * `analyzeCode()` runs the whole pipeline and returns one {@link AnalysisReport}:
  *
@@ -7,7 +7,7 @@
  *
  * It is pure and synchronous: no network, no database, no API key. The same
  * function runs on the server (in a Server Action) and could run in the browser
- * or a Web Worker unchanged. It also measures its OWN wall-clock time — an honest,
+ * or a Web Worker unchanged. It also measures its OWN wall-clock time - an honest,
  * real "resource usage" number to sit alongside the modelled estimates.
  */
 import type { AnalysisReport, CodeIssue, Language, Severity } from "./types";

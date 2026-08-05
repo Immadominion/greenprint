@@ -3,7 +3,7 @@
  * -----------------------------------
  * Turns metrics + issues into (a) a transparent, MODELLED energy/CO2 estimate
  * and (b) the gamified EcoScore. Every number in the energy model comes from the
- * documented constants below — it is a teaching model, not a measurement, and the
+ * documented constants below - it is a teaching model, not a measurement, and the
  * UI/report always say so. This satisfies the "estimated execution time and
  * resource usage" green requirement in an honest, defensible way.
  */
@@ -105,7 +105,7 @@ export function buildEnergyEstimate(pre: Preprocessed, issues: CodeIssue[]): Ene
       `Processor throughput assumed at ${(OPS_PER_SECOND / 1e6).toFixed(0)}M operations/second.`,
       `Active CPU power draw assumed at ${CPU_ACTIVE_WATTS} W (a single busy core).`,
       `Grid carbon intensity assumed at ${GRID_CARBON_G_PER_KWH} gCO₂/kWh (global average).`,
-      "Complexity class is inferred from loop nesting and recursion — a teaching model, not a measurement.",
+      "Complexity class is inferred from loop nesting and recursion - a teaching model, not a measurement.",
     ],
   };
 }
@@ -139,7 +139,7 @@ export function computeEcoScore(
     .reduce((s, i) => s + SEVERITY_WEIGHT[i.severity] * (0.5 + i.impact * 0.5), 0);
   const greenPoints = clamp(greenMax - greenPenalty, 0, greenMax);
 
-  // 3. Code quality (20 pts) — anchored on maintainability index
+  // 3. Code quality (20 pts) - anchored on maintainability index
   const qualityMax = 20;
   const qualityPenalty = issues
     .filter((i) => i.category === "quality")

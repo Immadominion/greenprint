@@ -4,12 +4,12 @@
  * Regex-based rules are fragile if they run over raw source: a `for` inside a
  * string or comment would be a false positive. So before any rule runs we build
  * a "clean" copy of the code where every comment and string literal is replaced
- * by blanks (spaces) — line count, indentation and braces are preserved, but the
+ * by blanks (spaces) - line count, indentation and braces are preserved, but the
  * distracting content is gone.
  *
  * We also compute, once, two structural signals every downstream rule reuses:
- *   • blockDepth[i]    — how deeply nested line i is (braces or indentation)
- *   • loopDepthAt[i]   — how many loops enclose line i (0 = not in a loop)
+ *   • blockDepth[i]    - how deeply nested line i is (braces or indentation)
+ *   • loopDepthAt[i]   - how many loops enclose line i (0 = not in a loop)
  * This is what lets us reliably flag O(n²) nested loops and "work inside a loop".
  */
 import type { Language } from "./types";
@@ -198,7 +198,7 @@ function stripCommentsAndStrings(code: string, t: LangTokens) {
         continue;
       }
       if (ch === "\n") {
-        // unterminated single-line string — recover at newline
+        // unterminated single-line string - recover at newline
         cleanChars[i] = "\n";
         kinds[i] = " ";
         mode = "normal";

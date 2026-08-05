@@ -3,7 +3,7 @@
  * --------------------------------------------
  * All reads the app needs, in one place: gamification profile, analysis history,
  * aggregate stats, trend series, badges and the team leaderboard. Keeping queries
- * here (not scattered in pages) is part of the "optimized database access" goal —
+ * here (not scattered in pages) is part of the "optimized database access" goal -
  * lists never select the heavy `code`/`report` columns they don't render.
  */
 import "server-only";

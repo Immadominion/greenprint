@@ -4,7 +4,7 @@
  *   2. apply database migrations
  *   3. seed demo data if the database is empty
  *
- * This is why a teammate can clone the repo and just run `npm run dev` — no
+ * This is why a teammate can clone the repo and just run `npm run dev` - no
  * manual database or environment steps.
  */
 import { config } from "dotenv";

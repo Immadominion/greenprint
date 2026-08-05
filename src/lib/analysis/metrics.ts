@@ -2,11 +2,11 @@
  * Greenprint · Metrics
  * --------------------
  * Turns the pre-processed source into hard numbers:
- *   • Size      — lines of code, comments, blanks, duplication.
- *   • Complexity— McCabe cyclomatic complexity, nesting, function sizes,
+ *   • Size      - lines of code, comments, blanks, duplication.
+ *   • Complexity- McCabe cyclomatic complexity, nesting, function sizes,
  *                 and a simplified Maintainability Index (MI).
  *
- * Everything is an approximation computed WITHOUT a full parser — that is a
+ * Everything is an approximation computed WITHOUT a full parser - that is a
  * deliberate trade-off so the engine stays tiny, dependency-free and fast
  * (the "lightweight architecture" green requirement). The approximations are
  * standard and are documented so they can be defended.
@@ -160,7 +160,7 @@ function extractFunctionName(line: string): string {
   return "";
 }
 
-/** Locate every function/method with its source range — shared by metrics and rules. */
+/** Locate every function/method with its source range - shared by metrics and rules. */
 export function getFunctionBlocks(pre: Preprocessed): FunctionBlock[] {
   const regexes = functionHeaderRegexes(pre.language);
   const usesIndent = pre.family === "python" || pre.family === "ruby";

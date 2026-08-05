@@ -6,7 +6,7 @@ import { Logo } from "@/components/greenprint/logo";
 import { COURSE } from "@/lib/team";
 
 const HIGHLIGHTS = [
-  { icon: Zap, title: "Instant analysis", text: "Complexity, energy and CO₂ estimates in milliseconds — fully offline." },
+  { icon: Zap, title: "Instant analysis", text: "Complexity, energy and CO₂ estimates in milliseconds - fully offline." },
   { icon: Leaf, title: "Greener alternatives", text: "Every issue comes with a concrete, more efficient fix." },
   { icon: Trophy, title: "Level up", text: "Earn XP, keep streaks, and climb the team leaderboard." },
 ];

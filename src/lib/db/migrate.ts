@@ -1,6 +1,6 @@
 /**
  * Applies the generated SQL migrations (./drizzle) to the database using the
- * libSQL migrator. Idempotent — safe to run on every startup.
+ * libSQL migrator. Idempotent - safe to run on every startup.
  */
 import { migrate } from "drizzle-orm/libsql/migrator";
 import { db } from "./index";

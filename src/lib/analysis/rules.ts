@@ -3,7 +3,7 @@
  * ------------------------
  * The catalogue of "green" and efficiency rules. Each rule looks for one
  * wasteful pattern and, when it fires, produces a {@link CodeIssue} that
- * explains — in plain English — what is wrong, WHY it costs energy, and the
+ * explains - in plain English - what is wrong, WHY it costs energy, and the
  * greener alternative. This file is the source of truth for the in-app
  * "How detection works" reference page too (see {@link RULE_CATALOG}).
  *
@@ -96,7 +96,7 @@ const RULES: Rule[] = [
     category: "resource",
     severity: "high",
     impact: 0.85,
-    why: "Sequential network calls stack their latency and keep the CPU and radio awake far longer than necessary — one of the biggest real-world energy costs in an app.",
+    why: "Sequential network calls stack their latency and keep the CPU and radio awake far longer than necessary - one of the biggest real-world energy costs in an app.",
     suggestion: "Batch the requests, paginate, or fire them together with Promise.all / async gather so they overlap.",
     betterExample: "const results = await Promise.all(ids.map((id) => fetch(`/api/item/${id}`)));",
     languages: "all",
@@ -108,7 +108,7 @@ const RULES: Rule[] = [
     category: "resource",
     severity: "medium",
     impact: 0.6,
-    why: "Strings are immutable in most languages, so `s += x` allocates a brand-new string every iteration — O(n²) memory traffic and lots of garbage-collection work.",
+    why: "Strings are immutable in most languages, so `s += x` allocates a brand-new string every iteration - O(n²) memory traffic and lots of garbage-collection work.",
     suggestion: "Push pieces into a list/array and join once at the end (or use a StringBuilder / bytes buffer).",
     betterExample: "const parts = [];\nfor (…) parts.push(piece);\nconst result = parts.join('');",
     languages: "all",
@@ -135,7 +135,7 @@ const RULES: Rule[] = [
     category: "database",
     severity: "medium",
     impact: 0.45,
-    why: "`SELECT *` pulls every column over the wire and into memory even when you need two of them — wasted I/O, bandwidth and energy on every query.",
+    why: "`SELECT *` pulls every column over the wire and into memory even when you need two of them - wasted I/O, bandwidth and energy on every query.",
     suggestion: "List only the columns you actually use.",
     betterExample: "SELECT id, name FROM users WHERE active = true;",
     languages: "all",
@@ -187,7 +187,7 @@ const RULES: Rule[] = [
     category: "algorithmic",
     severity: "medium",
     impact: 0.5,
-    why: "`x in a_list` scans the whole list — O(n). Inside a loop that becomes O(n²). A set (hash) answers the same question in O(1).",
+    why: "`x in a_list` scans the whole list - O(n). Inside a loop that becomes O(n²). A set (hash) answers the same question in O(1).",
     suggestion: "Convert the list to a set once, then test membership against the set.",
     betterExample: "seen = set(items)\nfor x in data:\n    if x in seen:  # O(1)\n        ...",
     languages: ["python"],
@@ -199,7 +199,7 @@ const RULES: Rule[] = [
     category: "algorithmic",
     severity: "medium",
     impact: 0.5,
-    why: "Inserting at index 0 shifts every existing element one place — O(n) each time. In a loop that is quadratic.",
+    why: "Inserting at index 0 shifts every existing element one place - O(n) each time. In a loop that is quadratic.",
     suggestion: "Append to the end (O(1)) and reverse once, or use a deque/linked structure built for front inserts.",
     languages: "all",
     detect: (pre) => scan(pre, (l) => /\.(unshift|insert)\s*\(\s*0\s*,|\.insert\s*\(\s*0\s*,|\.unshift\s*\(/.test(l)),
@@ -210,7 +210,7 @@ const RULES: Rule[] = [
     category: "resource",
     severity: "medium",
     impact: 0.55,
-    why: "Loading a whole file at once holds all of it in RAM. For large files this spikes memory and can trigger swapping — expensive in time and energy.",
+    why: "Loading a whole file at once holds all of it in RAM. For large files this spikes memory and can trigger swapping - expensive in time and energy.",
     suggestion: "Stream the file or iterate it line by line so only a small window is in memory at a time.",
     languages: "all",
     detect: (pre) => scan(pre, (l) => /\b(readFileSync|ReadAllText|ReadAllBytes|readAllBytes|ioutil\.ReadFile|os\.ReadFile|\.readlines\s*\(\s*\)|open\s*\([^)]*\)\s*\.\s*read\s*\(\s*\))/.test(l)),
@@ -232,7 +232,7 @@ const RULES: Rule[] = [
     category: "energy",
     severity: "low",
     impact: 0.4,
-    why: "A `while(true)` with no yield can spin the CPU at 100% and never let the core rest — a classic battery killer.",
+    why: "A `while(true)` with no yield can spin the CPU at 100% and never let the core rest - a classic battery killer.",
     suggestion: "Add a clear exit condition, and await / sleep briefly each iteration so the core can idle.",
     languages: "all",
     detect: (pre) => scan(pre, (l) => /\bwhile\s*\(\s*(true|1)\s*\)|while\s+True\s*:/.test(l)),
@@ -243,7 +243,7 @@ const RULES: Rule[] = [
     category: "resource",
     severity: "low",
     impact: 0.3,
-    why: "Wildcard/whole-library imports pull in code you never call. The bundle ships bigger, so every user downloads, parses and runs more — repeated energy cost across all devices.",
+    why: "Wildcard/whole-library imports pull in code you never call. The bundle ships bigger, so every user downloads, parses and runs more - repeated energy cost across all devices.",
     suggestion: "Import only the specific functions you use so tree-shaking can drop the rest.",
     betterExample: "import { debounce } from 'lodash-es';",
     languages: "all",
@@ -310,7 +310,7 @@ export const RULE_CATALOG: RuleMeta[] = RULES.map(({ detect, ...meta }) => meta)
     category: "algorithmic",
     severity: "critical",
     impact: 0.98,
-    why: "A function that calls itself two or more times on overlapping sub-problems (e.g. naive Fibonacci) recomputes the same values exponentially often — O(2ⁿ). This is astronomically wasteful of CPU and energy.",
+    why: "A function that calls itself two or more times on overlapping sub-problems (e.g. naive Fibonacci) recomputes the same values exponentially often - O(2ⁿ). This is astronomically wasteful of CPU and energy.",
     suggestion: "Cache results (memoization) or rewrite bottom-up with a loop so each sub-problem is solved once.",
     betterExample: "const memo = new Map();\nfunction fib(n){ if(n<2) return n; if(memo.has(n)) return memo.get(n);\n  const v = fib(n-1)+fib(n-2); memo.set(n,v); return v; }",
     languages: "all",
@@ -375,7 +375,7 @@ function detectNestedLoops(pre: Preprocessed): CodeIssue[] {
     return issue(meta, pre, idx, {
       severity,
       impact: Math.min(1, 0.75 + level * 0.08),
-      message: `Loop nested ${level} levels deep — roughly ${bigO} work.`,
+      message: `Loop nested ${level} levels deep - roughly ${bigO} work.`,
     });
   });
 }
@@ -389,7 +389,7 @@ function detectExponentialRecursion(pre: Preprocessed): CodeIssue[] {
     const calls = body.match(new RegExp(`\\b${block.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*\\(`, "g"));
     // header itself contains one occurrence, so 3+ total means 2+ recursive calls
     if (calls && calls.length >= 3) {
-      out.push(issue(meta, pre, block.start, { message: `\`${block.name}\` calls itself multiple times — exponential blow-up.` }));
+      out.push(issue(meta, pre, block.start, { message: `\`${block.name}\` calls itself multiple times - exponential blow-up.` }));
     }
   }
   return out;

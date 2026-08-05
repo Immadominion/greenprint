@@ -36,7 +36,7 @@ const CHIPS = [
 
 const GREEN = [
   { icon: Search, text: "Flags the exact lines that burn CPU, memory and I/O" },
-  { icon: Scale, text: "Recommends better complexity — O(n²) → O(n)" },
+  { icon: Scale, text: "Recommends better complexity - O(n²) → O(n)" },
   { icon: Recycle, text: "Caches AI answers so identical code is never re-billed" },
   { icon: Database, text: "Queries fetch only what each view renders" },
   { icon: Cpu, text: "A dependency-free engine that runs fully offline" },
@@ -77,7 +77,7 @@ export default async function LandingPage() {
               </span>
             </h1>
             <p className="mx-auto mt-7 max-w-2xl text-lg text-muted-foreground sm:text-xl">
-              Greenprint scores your code&apos;s efficiency, estimates its energy and CO₂, and hands you the greener fix — with a
+              Greenprint scores your code&apos;s efficiency, estimates its energy and CO₂, and hands you the greener fix - with a
               score you&apos;ll want to beat.
             </p>
           </FadeIn>
@@ -164,7 +164,7 @@ export default async function LandingPage() {
                   </h2>
                 </div>
                 <p className="max-w-md text-lg text-foreground/70">
-                  Greenprint never just complains. Each of the 21 detection rules explains why a pattern costs energy — then
+                  Greenprint never just complains. Each of the 21 detection rules explains why a pattern costs energy - then
                   shows the faster, lighter alternative, with example code.
                 </p>
               </div>
@@ -185,7 +185,7 @@ export default async function LandingPage() {
             tag="Analyze"
             tagClass="bg-brand-soft text-brand"
             title="See what your code costs"
-            body="Complexity class, estimated runtime, energy and CO₂ — modelled from documented assumptions and shown for every analysis, fully offline."
+            body="Complexity class, estimated runtime, energy and CO₂ - modelled from documented assumptions and shown for every analysis, fully offline."
             visual={
               <div className="grid grid-cols-2 gap-3">
                 <BigStat label="Complexity" value={demo.energy.complexityClass} mono />
@@ -201,7 +201,7 @@ export default async function LandingPage() {
             tag="Optimize"
             tagClass="bg-eco-soft text-eco-strong"
             title="Fix it the green way"
-            body="Nested loops, N+1 queries, exponential recursion and 18 more — each with a plain-English reason and a concrete, more efficient fix."
+            body="Nested loops, N+1 queries, exponential recursion and 18 more - each with a plain-English reason and a concrete, more efficient fix."
             visual={<IssueCard issue={demo.issues[1] ?? demo.issues[0]} />}
           />
 
@@ -308,7 +308,7 @@ export default async function LandingPage() {
           </div>
           <div className="max-w-xs">
             <p className="text-foreground/70">
-              A sustainable AI code assistant built by Group 3 for {COURSE.code} — {COURSE.title}.
+              A sustainable AI code assistant built by Group 3 for {COURSE.code} - {COURSE.title}.
             </p>
             <p className="mt-3 text-sm text-muted-foreground">{COURSE.institution}</p>
           </div>
