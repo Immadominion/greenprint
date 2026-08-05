@@ -25,7 +25,7 @@ export function LandingNav() {
           href="/login"
           className="hidden rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
         >
-          Sign in
+          Book a demo
         </Link>
         <Link
           href="/signup"
